@@ -21,7 +21,7 @@ provider "azurerm" {
 variable "resource_group_name" {
   description = "Name of the resource group"
   type        = string
-  default     = "Dev-RG"
+  default     = "rg-blob-container"
 }
 
 variable "location" {
@@ -33,7 +33,7 @@ variable "location" {
 variable "storage_account_name" {
   description = "Name of the storage account"
   type        = string
-  default     = "stgblobabc0001"
+  default     = "stgblobtgi0001"
   
   validation {
     condition     = can(regex("^[a-z0-9]{3,24}$", var.storage_account_name))
@@ -44,7 +44,7 @@ variable "storage_account_name" {
 variable "container_name" {
   description = "Name of the blob container"
   type        = string
-  default     = "blob-container-01"
+  default     = "blob-container-001"
 }
 
 variable "sas_expiry_days" {
@@ -52,6 +52,9 @@ variable "sas_expiry_days" {
   type        = number
   default     = 60
 }
+
+
+# 2 options - create resource group or reuse an existing one
 
 # Create Resource Group
 # resource "azurerm_resource_group" "main" {
